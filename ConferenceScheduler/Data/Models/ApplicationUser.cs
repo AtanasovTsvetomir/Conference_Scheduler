@@ -9,10 +9,8 @@
         public ApplicationUser()
         {
             this.UsersConferences = new HashSet<UsersConferences>();
-            this.Id = Guid.NewGuid().ToString();
         }
 
         public virtual ICollection<UsersConferences> UsersConferences { get; set; }
-
     }
 }
