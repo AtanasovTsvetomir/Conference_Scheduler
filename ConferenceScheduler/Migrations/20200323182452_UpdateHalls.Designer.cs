@@ -4,14 +4,16 @@ using ConferenceScheduler.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConferenceScheduler.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200323182452_UpdateHalls")]
+    partial class UpdateHalls
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,6 +116,9 @@ namespace ConferenceScheduler.Migrations
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ConferenceId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(100)")
@@ -123,6 +128,8 @@ namespace ConferenceScheduler.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ConferenceId");
 
                     b.HasIndex("VenueId");
 
@@ -171,21 +178,6 @@ namespace ConferenceScheduler.Migrations
                             Name = "Second hall",
                             VenueId = 3
                         });
-                });
-
-            modelBuilder.Entity("ConferenceScheduler.Data.Models.HallsConferences", b =>
-                {
-                    b.Property<int>("HallId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ConferenceId")
-                        .HasColumnType("int");
-
-                    b.HasKey("HallId", "ConferenceId");
-
-                    b.HasIndex("ConferenceId");
-
-                    b.ToTable("HallsConferences");
                 });
 
             modelBuilder.Entity("ConferenceScheduler.Data.Models.Session", b =>
@@ -534,25 +526,14 @@ namespace ConferenceScheduler.Migrations
 
             modelBuilder.Entity("ConferenceScheduler.Data.Models.Hall", b =>
                 {
+                    b.HasOne("ConferenceScheduler.Data.Models.Conference", "Conference")
+                        .WithMany("Halls")
+                        .HasForeignKey("ConferenceId");
+
                     b.HasOne("ConferenceScheduler.Data.Models.Venue", "Venue")
                         .WithMany("Halls")
                         .HasForeignKey("VenueId")
                         .OnDelete(DeleteBehavior.NoAction);
-                });
-
-            modelBuilder.Entity("ConferenceScheduler.Data.Models.HallsConferences", b =>
-                {
-                    b.HasOne("ConferenceScheduler.Data.Models.Conference", "Conference")
-                        .WithMany("HallsConferences")
-                        .HasForeignKey("ConferenceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ConferenceScheduler.Data.Models.Hall", "Hall")
-                        .WithMany("HallsConferences")
-                        .HasForeignKey("HallId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ConferenceScheduler.Data.Models.Session", b =>

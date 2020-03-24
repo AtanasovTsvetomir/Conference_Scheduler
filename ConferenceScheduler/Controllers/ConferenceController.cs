@@ -1,13 +1,12 @@
-﻿using ConferenceScheduler.Data;
-using ConferenceScheduler.Data.Models;
-using ConferenceScheduler.Services.Conference;
-using ConferenceScheduler.ViewModels.Conference;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-
-namespace ConferenceScheduler.Controllers.ConferenceController
+﻿namespace ConferenceScheduler.Controllers.ConferenceController
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Identity;
+
+    using ConferenceScheduler.Data.Models;
+    using ConferenceScheduler.Services.Conference;
+    using ConferenceScheduler.ViewModels.Conference;
+
     public class ConferenceController : Controller
     {
         private readonly IConferenceService conferenceService;
@@ -27,11 +26,9 @@ namespace ConferenceScheduler.Controllers.ConferenceController
         [HttpPost]
         public IActionResult Create(ConferenceCreateInputModel model)
         {
-            string currentId = userManager.GetUserId(HttpContext.User);
+            this.conferenceService.Create(model, GetId());
 
-            this.conferenceService.Create(model, currentId);
-
-            return this.Redirect("/Home");
+            return this.Redirect("/Conference/Own");
         }
 
         public IActionResult All()
@@ -43,11 +40,23 @@ namespace ConferenceScheduler.Controllers.ConferenceController
 
         public IActionResult Own()
         {
-            string currentId = userManager.GetUserId(HttpContext.User);
-
-            var ownConferences = this.conferenceService.Own(currentId);
+            var ownConferences = this.conferenceService.Own(GetId());
 
             return this.View(ownConferences);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var conference = this.conferenceService.Details(id);
+
+            return this.View(conference);
+        }
+
+        public string GetId()
+        {
+            string currentId = userManager.GetUserId(HttpContext.User);
+
+            return currentId;
         }
     }
 }

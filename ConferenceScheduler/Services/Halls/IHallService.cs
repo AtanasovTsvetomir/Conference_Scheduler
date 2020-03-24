@@ -1,11 +1,9 @@
-﻿namespace ConferenceScheduler.Services.Hall
+﻿namespace ConferenceScheduler.Services.Halls
 {
-    using System.Threading.Tasks;
-
     using ConferenceScheduler.ViewModels.Hall;
 
-    public interface IHallService
+    public interface IHallService 
     {
-        Task<HallViewModel> AddAsync(HallCreateInputModel model);
+        void Add(int id, HallAddInputModel model);
     }
 }

@@ -9,7 +9,7 @@
         public Conference()
         {
             this.UsersConferences = new HashSet<UsersConferences>();
-            this.Halls = new HashSet<Hall>();
+            this.HallsConferences = new HashSet<HallsConferences>();
             this.SpeakersConferences = new HashSet<SpeakersConferences>();
         }
 
@@ -35,7 +35,7 @@
 
         public ICollection<SpeakersConferences> SpeakersConferences { get; set; }
 
-        public ICollection<Hall> Halls { get; set; }
+        public ICollection<HallsConferences> HallsConferences { get; set; }
 
         public ICollection<UsersConferences> UsersConferences { get; set; }
     }

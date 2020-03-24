@@ -1,8 +1,6 @@
 ﻿@model ConferenceScheduler.Data.Models.Conference[]
 
-<hr />
-
-<h3>Future Conferences</h3>
+<h3><center>Future Conferences</center></h3>
 
 <hr />
 
@@ -13,6 +11,7 @@
         <th>Venue</th>
         <th>Start</th>
         <th>End</th>
+        <th>Details</th>
     </tr>
 
     @foreach (var item in Model)
@@ -25,6 +24,11 @@
                 <td>@item.Venue.Name</td>
                 <td>@item.StartTime</td>
                 <td>@item.EndTime</td>
+                <td>
+                    <div class="button-holder">
+                        <a href="/Conference/Details/@item.Id" class="btn btn-info text-uppercase">Details</a>
+                    </div>
+                </td>
             </tr>
         }
     }
@@ -32,7 +36,7 @@
 
 <hr />
 
-<h3>Past Conferences</h3>
+<h3><center>Past Conferences</center></h3>
 
 <hr />
 
@@ -43,6 +47,7 @@
         <th>Venue</th>
         <th>Start</th>
         <th>End</th>
+        <th>Details</th>
     </tr>
 
     @foreach (var item in Model)
@@ -55,6 +60,11 @@
                 <td>@item.Venue.Name</td>
                 <td>@item.StartTime</td>
                 <td>@item.EndTime</td>
+                <td>
+                    <div class="button-holder">
+                        <a href="/Conference/Details/@item.Id" class="btn btn-info text-uppercase">Details</a>
+                    </div>
+                </td>
             </tr>
         }
     }
@@ -69,12 +79,12 @@
 
     td, th {
         border: 1px solid #dddddd;
-        text-align: left;
         padding: 8px;
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
+        text-align: left;
+        width: 25%;
+        /*border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;*/
     }
 </style>
 

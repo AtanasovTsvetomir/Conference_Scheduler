@@ -1,11 +1,11 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using ConferenceScheduler.Models;
-using Microsoft.AspNetCore.Authorization;
-
-namespace ConferenceScheduler.Controllers
+﻿namespace ConferenceScheduler.Controllers
 {
+    using System.Diagnostics;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+
+    using ConferenceScheduler.Models;
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

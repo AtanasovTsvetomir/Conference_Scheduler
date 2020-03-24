@@ -1,7 +1,6 @@
 ﻿namespace ConferenceScheduler.ViewModels.Conference
 {
     using System;
-    using ConferenceScheduler.Data.Models;
 
     public class ConferenceCreateInputModel
     {

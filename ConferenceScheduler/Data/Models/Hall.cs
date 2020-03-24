@@ -19,11 +19,10 @@
         [Required]
         public int Capacity { get; set; }
 
-        public int? ConferenceId { get; set; }
-        public Conference Conference { get; set; }
-
         public int? VenueId { get; set; }
         public Venue Venue { get; set; }
+
+        public ICollection<HallsConferences> HallsConferences { get; set; }
 
         public ICollection<Session> Sessions { get; set; }
     }

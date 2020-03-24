@@ -1,9 +1,9 @@
 ﻿namespace ConferenceScheduler.Services.Conference
 {
-    using ConferenceScheduler.ViewModels.Conference;
     using System.Collections.Generic;
+
     using ConferenceScheduler.Data.Models;
-    using Microsoft.AspNetCore.Identity;
+    using ConferenceScheduler.ViewModels.Conference;
 
     public interface IConferenceService
     {
@@ -12,5 +12,7 @@
         IEnumerable<Conference> GetAll();
 
         IEnumerable<Conference> Own(string id);
+
+        Conference Details(int id);
     }
 }

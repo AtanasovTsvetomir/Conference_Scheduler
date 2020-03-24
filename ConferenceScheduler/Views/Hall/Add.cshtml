@@ -1,0 +1,22 @@
+﻿@model ConferenceScheduler.ViewModels.Hall.HallAddInputModel
+
+<h1>Add Hall!</h1>
+
+<div class="col-md-4">
+    <form asp-controller="Hall" asp-action="Add" method="post"
+          enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label asp-for="HallId"></label>
+            <select asp-for="HallId" class="form-control">
+                <option value="1">First Hall</option>
+                <option value="2">Second Hall</option>
+            </select>
+            <span asp-validation-for="HallId" class="text-danger"></span>
+        </div>
+
+        <hr />
+
+        <input type="submit" value="Add" class="btn btn-primary" />
+    </form>
+</div>

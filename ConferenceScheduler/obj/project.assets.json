@@ -8855,11 +8855,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\Conference-Scheduler\\ConferenceScheduler\\ConferenceScheduler.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\Codexio\\Conference_Scheduler\\ConferenceScheduler\\ConferenceScheduler.csproj",
       "projectName": "ConferenceScheduler",
-      "projectPath": "C:\\Users\\User\\source\\repos\\Conference-Scheduler\\ConferenceScheduler\\ConferenceScheduler.csproj",
+      "projectPath": "C:\\Users\\User\\source\\repos\\Codexio\\Conference_Scheduler\\ConferenceScheduler\\ConferenceScheduler.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\Conference-Scheduler\\ConferenceScheduler\\obj\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\Codexio\\Conference_Scheduler\\ConferenceScheduler\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

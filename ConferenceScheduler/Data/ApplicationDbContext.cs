@@ -4,7 +4,6 @@
 
     using ConferenceScheduler.Data.Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-    using System.Collections.Generic;
 
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -27,6 +26,8 @@
 
         public DbSet<SpeakersConferences> SpeakersConferences { get; set; }
 
+        public DbSet<HallsConferences> HallsConferences { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder
@@ -37,10 +38,68 @@
                 .Entity<SpeakersConferences>()
                 .HasKey(sc => new { sc.SpeakerId, sc.ConferenceId });
 
+            builder
+                .Entity<HallsConferences>()
+                .HasKey(hc => new { hc.HallId, hc.ConferenceId });
+
             builder.Entity<Hall>()
                 .HasOne(h => h.Venue)
                 .WithMany(v => v.Halls)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<Hall>()
+                .HasData(new Hall
+                {
+                    Id = 1,
+                    Name = "First hall",
+                    Capacity = 50,
+                    VenueId = 1
+                });
+
+            builder.Entity<Hall>()
+                .HasData(new Hall
+                {
+                    Id = 2,
+                    Name = "Second hall",
+                    Capacity = 50,
+                    VenueId = 1
+                });
+
+            builder.Entity<Hall>()
+                .HasData(new Hall
+                {
+                    Id = 3,
+                    Name = "First hall",
+                    Capacity = 50,
+                    VenueId = 2
+                });
+
+            builder.Entity<Hall>()
+                .HasData(new Hall
+                {
+                    Id = 4,
+                    Name = "Second hall",
+                    Capacity = 50,
+                    VenueId = 2
+                });
+
+            builder.Entity<Hall>()
+                .HasData(new Hall
+                {
+                    Id = 5,
+                    Name = "First hall",
+                    Capacity = 50,
+                    VenueId = 3
+                });
+
+                builder.Entity<Hall>()
+                .HasData(new Hall
+                {
+                    Id = 6,
+                    Name = "Second hall",
+                    Capacity = 50,
+                    VenueId = 3
+                });
 
             builder.Entity<Venue>().HasData(new Venue
             {
@@ -54,6 +113,30 @@
                 Id = 2,
                 Name = "Sofia Center",
                 Address = "Sofia",
+                //Halls = new List<Hall>
+                //{
+                //    new Hall()
+                //    {
+                //        Id = 1,
+                //        Name = "First hall",
+                //        Capacity = 50,
+                //        VenueId = 2
+                //    },
+                //    new Hall()
+                //    {
+                //        Id = 2,
+                //        Name = "Second hall",
+                //        Capacity = 100,
+                //        VenueId = 2
+                //    },
+                //    new Hall()
+                //    {
+                //        Id = 3,
+                //        Name = "Third hall",
+                //        Capacity = 80,
+                //        VenueId = 2
+                //    }
+                //}
             });
 
             builder.Entity<Venue>().HasData(new Venue

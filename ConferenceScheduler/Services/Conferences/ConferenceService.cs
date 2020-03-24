@@ -1,7 +1,8 @@
 ﻿namespace ConferenceScheduler.Services.Conferences
 {
-    using System.Collections.Generic;
     using System.Linq;
+    using System.Collections.Generic;
+
     using ConferenceScheduler.Data;
     using ConferenceScheduler.Data.Models;
     using ConferenceScheduler.Services.Conference;
@@ -42,27 +43,33 @@
 
         public IEnumerable<Conference> GetAll()
                     => this.context.Conferences
-                    .Select(x => new Conference
-                    {
-                        Name = x.Name,
-                        Description = x.Description,
-                        StartTime = x.StartTime,
-                        EndTime = x.EndTime,
-                        Venue = x.Venue,
-                    })
-                    .ToArray();
+                        .Select(x => new Conference
+                        {
+                            Id = x.Id,
+                            Name = x.Name,
+                            Description = x.Description,
+                            StartTime = x.StartTime,
+                            EndTime = x.EndTime,
+                            Venue = x.Venue,
+                        })
+                        .ToArray();
 
         public IEnumerable<Conference> Own(string id)
-                => this.context.UsersConferences
-                .Where(x => x.ApplicationUserId == id)
-                .Select(x => new Conference
-                {
-                    Name = x.Conference.Name,
-                    Description = x.Conference.Description,
-                    StartTime = x.Conference.StartTime,
-                    EndTime = x.Conference.EndTime,
-                    Venue = x.Conference.Venue,
-                })
-            .ToArray();
+                => this.context
+                     .UsersConferences
+                     .Where(x => x.ApplicationUserId == id)
+                     .Select(x => new Conference
+                     {
+                         Id = x.Conference.Id,
+                         Name = x.Conference.Name,
+                         Description = x.Conference.Description,
+                         StartTime = x.Conference.StartTime,
+                         EndTime = x.Conference.EndTime,
+                         Venue = x.Conference.Venue,
+                     })
+                         .ToArray();
+
+        public Conference Details(int id)
+            => this.context.Conferences.Find(id);
     }
 }
