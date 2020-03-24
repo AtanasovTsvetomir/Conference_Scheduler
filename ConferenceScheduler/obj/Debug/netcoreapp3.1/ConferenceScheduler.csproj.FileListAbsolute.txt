@@ -665,3 +665,4 @@ C:\Users\User\source\repos\Codexio\Conference_Scheduler\ConferenceScheduler\obj\
 C:\Users\User\source\repos\Codexio\Conference_Scheduler\ConferenceScheduler\obj\Debug\netcoreapp3.1\ConferenceScheduler.pdb
 C:\Users\User\source\repos\Codexio\Conference_Scheduler\ConferenceScheduler\obj\Debug\netcoreapp3.1\Razor\Views\Hall\Add.cshtml.g.cs
 C:\Users\User\source\repos\Codexio\Conference_Scheduler\ConferenceScheduler\obj\Debug\netcoreapp3.1\Razor\Views\Conference\Details.cshtml.g.cs
+C:\Users\User\source\repos\Codexio\Conference_Scheduler\ConferenceScheduler\obj\Debug\netcoreapp3.1\Razor\Views\Session\Add.cshtml.g.cs

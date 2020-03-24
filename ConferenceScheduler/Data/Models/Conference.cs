@@ -36,6 +36,7 @@
         public ICollection<SpeakersConferences> SpeakersConferences { get; set; }
 
         public ICollection<HallsConferences> HallsConferences { get; set; }
+        public Hall Hall { get; set; }
 
         public ICollection<UsersConferences> UsersConferences { get; set; }
     }

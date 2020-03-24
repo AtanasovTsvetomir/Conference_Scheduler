@@ -1,0 +1,44 @@
+﻿@model ConferenceScheduler.ViewModels.Session.SessionAddInputModel
+
+<h1>Add Session!</h1>
+
+<div class="col-md-4">
+    <form asp-controller="Conference" asp-action="Create" method="post"
+          enctype="multipart/form-data">
+
+
+        <div class="form-group">
+                <label asp-for="HallId"></label>
+                <select asp-for="HallId" class="form-control">
+                    <option value="1">First Hall</option>
+                    <option value="2">Second Hall</option>
+                </select>
+                <span asp-validation-for="HallId" class="text-danger"></span>
+            </div>
+
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+
+        <div>
+            <label asp-for="StartTime"></label>
+            <input asp-for="StartTime" class="form-check" />
+        </div>
+
+        <div>
+            <label asp-for="EndTime"></label>
+            <input asp-for="EndTime" class="form-check" />
+        </div>
+
+        <hr />
+
+        <input type="submit" value="Add" class="btn btn-primary" />
+
+    </form>
+

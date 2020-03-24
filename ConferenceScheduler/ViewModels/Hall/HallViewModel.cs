@@ -2,13 +2,16 @@
 {
     using ConferenceScheduler.Data.Models;
 
-    public class HallAddInputModel
+    public class HallViewModel
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public int Capacity { get; set; }
+
         public int VenueId { get; set; }
         public Venue Venue { get; set; }
-
-        public int HallId { get; set; }
-        public Hall Hall { get; set; }
 
         public int ConferenceId { get; set; }
         public Conference Conference { get; set; }

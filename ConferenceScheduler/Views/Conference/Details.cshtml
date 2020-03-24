@@ -1,5 +1,7 @@
 ﻿@model ConferenceScheduler.Data.Models.Conference
 
+
+
 <table>
     <tr>
         <th>Name</th>
@@ -13,20 +15,18 @@
         <td>@Model.Description</td>
         <td>@Model.StartTime</td>
         <td>@Model.EndTime</td>
-       
         <td>
             <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">Edit</button>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="/Hall/Add/@Model.Id">Add Hall</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
+                    <a href="/Session/Add/">Add Session</a>
+                    <a href="#contact">Add Speaker</a>
                 </div>
             </div>
         </td>
     </tr>
 </table>
-
 
 <style>
     .dropbtn {

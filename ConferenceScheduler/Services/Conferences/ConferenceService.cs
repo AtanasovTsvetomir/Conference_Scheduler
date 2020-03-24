@@ -70,6 +70,8 @@
                          .ToArray();
 
         public Conference Details(int id)
-            => this.context.Conferences.Find(id);
+            => this.context
+                .Conferences
+                .Find(id);
     }
 }
